@@ -1,18 +1,18 @@
 import * as actionTypes from "../actions/actionCreators";
-import firebase from "../firebase";
+import dbRef from "../firebase";
 
-const dbRef = firebase.database().ref();
 // dbRef.on()
-const initialState = {
-	todoList: [1, 222222, 3]
-};
+// const initialState = {
+// 	todoList: []
+// };
 
-export default function rootReducer(state = initialState, action) {
+export default function rootReducer(state = {}, action) {
 	switch (action.type) {
+		case actionTypes.FETCH_TODOS:
+			return action.payload;
 		case actionTypes.ADD_TODO:
-			return {
-				state
-			};
+			dbRef.push(action.newTodo);
+			return state;
 		case actionTypes.UPDATE_TODO:
 			return {};
 		case actionTypes.DELETE_TODO:

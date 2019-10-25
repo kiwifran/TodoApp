@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Container, Form, Button } from "react-bootstrap";
@@ -13,7 +14,6 @@ class TodoForm extends Component {
 			todoDescription: "",
 			dueDate: new Date()
 		};
-		this.formRef = React.createRef();
 	}
 	onChangeInput = e => {
 		this.setState({
@@ -32,8 +32,20 @@ class TodoForm extends Component {
 	};
 	onFormSubmit = e => {
 		e.preventDefault();
+		this.props.addTodo({
+			...this.state,
+			dueDate: this.state.dueDate.toDateString()
+		});
 		console.log(this.state);
-		this.formRef.reset();
+		this.setState({
+			todoName: "",
+			isTodoDone: false,
+			todoDescription: "",
+			dueDate: new Date()
+		});
+		//for some unknown reasons the reference to the form only controls the textarea, while the value of textarea changes the dom node won't change as the other inputs do, so clear them separately
+
+		ReactDOM.findDOMNode(this.formRef).reset();
 	};
 	componentDidMount() {}
 	componentDidUpdate(prevProps, prevState) {}
@@ -44,9 +56,7 @@ class TodoForm extends Component {
 					{" "}
 					<Form
 						onSubmit={this.onFormSubmit}
-						ref={form => {
-							this.formRef = form;
-						}}
+						ref={form => (this.formRef = form)}
 					>
 						<Form.Group controlId="todoName">
 							<Form.Label>Type in todo's name</Form.Label>
