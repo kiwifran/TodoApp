@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import EditForm from "./EditForm";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Container, Form, Button } from "react-bootstrap";
@@ -53,8 +54,7 @@ class TodoForm extends Component {
 		return (
 			<header>
 				<Container className="formContainer">
-					{" "}
-					<Form
+					{/* <Form
 						onSubmit={this.onFormSubmit}
 						ref={form => (this.formRef = form)}
 					>
@@ -106,7 +106,8 @@ class TodoForm extends Component {
 						<Button variant="primary" type="submit">
 							Submit
 						</Button>
-					</Form>
+					</Form> */}
+					<EditForm isNewTodo={true} />
 				</Container>
 			</header>
 		);

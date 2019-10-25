@@ -29,7 +29,7 @@ class TodoList extends Component {
 	render() {
 		return (
 			<div>
-				<h2>the todo list comes here </h2>
+				<hr />
 				<div className="row justify-content-center justify-content-md-between flex-wrap p-3">
 					{this.renderTodoCard(this.props.store)}
 				</div>

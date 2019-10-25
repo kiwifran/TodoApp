@@ -23,12 +23,8 @@ export const fetchTodos = () => {
 		});
 	};
 };
-export const updateTodo = (todoId, updatedTodo) => {
-	return {
-		type: UPDATE_TODO,
-		todoId,
-		updatedTodo
-	};
+export const updateTodo = (todoId, updatedTodo) => async dispatch => {
+	dbRef.child(todoId).set(updatedTodo);
 };
 export const deleteTodo = todoId => async dispatch => {
 	dbRef.child(todoId).remove();
