@@ -4,19 +4,24 @@ export const DELETE_TODO = "DELETE_TODO";
 export const UPDATE_TODO = "UPDATE_TODO";
 export const FETCH_TODOS = "FETCH_TODOS";
 
-export const addTodo = newTodo => {
-	return {
-		type: ADD_TODO,
-		newTodo
-	};
+// export const addTodo = newTodo => {
+// 	return {
+// 		type: ADD_TODO,
+// 		newTodo
+// 	};
+// };
+export const addTodo = newToDo => async dispatch => {
+	dbRef.push(newToDo);
 };
-export const fetchTodos = () => async dispatch => {
-	dbRef.on("value", res => {
-		dispatch({
-			type: FETCH_TODOS,
-			payload: res.val()
+export const fetchTodos = () => {
+	return dispatch => {
+		dbRef.on("value", res => {
+			dispatch({
+				type: FETCH_TODOS,
+				payload: res.val()
+			});
 		});
-	});
+	};
 };
 export const updateTodo = (todoId, updatedTodo) => {
 	return {
@@ -25,9 +30,6 @@ export const updateTodo = (todoId, updatedTodo) => {
 		updatedTodo
 	};
 };
-export const deleteTodo = todoId => {
-	return {
-		type: DELETE_TODO,
-		todoId
-	};
+export const deleteTodo = todoId => async dispatch => {
+	dbRef.child(todoId).remove();
 };

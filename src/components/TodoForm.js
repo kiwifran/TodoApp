@@ -52,7 +52,7 @@ class TodoForm extends Component {
 	render() {
 		return (
 			<header>
-				<Container>
+				<Container className="formContainer">
 					{" "}
 					<Form
 						onSubmit={this.onFormSubmit}
