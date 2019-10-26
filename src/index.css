@@ -14,3 +14,8 @@
 .unfinished{
   background-color: #ffc107;
 }
+.switch {
+  text-align:center;
+  width: 300px;
+  margin: 10px auto;
+}
