@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import { updateTodo } from "./actions/actionCreators";
 import { addTodo } from "./actions/actionCreators";
@@ -46,7 +45,15 @@ class EditForm extends Component {
 				dueDate: new Date()
 			});
 		} else {
-			this.props.updateTodo(this.props.todoId, this.state);
+			let originalDate = this.state.dueDate;
+			let formattedDate;
+			originalDate instanceof Date
+				? (formattedDate = this.state.dueDate.getTime())
+				: (formattedDate = this.state.dueDate);
+			this.props.updateTodo(this.props.todoId, {
+				...this.state,
+				dueDate: formattedDate
+			});
 			this.props.setModalStatus(false);
 		}
 	};

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchTodos } from "./actions/actionCreators";
-import { Container } from "react-bootstrap";
-
 import TodoCard from "./TodoCard";
 class TodoList extends Component {
 	constructor(props) {

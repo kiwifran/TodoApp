@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { deleteTodo } from "./actions/actionCreators";
-import { Container, Card, Button, Modal, Form } from "react-bootstrap";
+import { Container, Card, Button, Modal } from "react-bootstrap";
 import EditForm from "./EditForm";
 class TodoCard extends Component {
 	constructor(props) {

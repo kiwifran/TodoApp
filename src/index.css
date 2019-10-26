@@ -8,5 +8,9 @@
 }
 .finished {
   text-decoration:line-through;
+  background-color: #28a745;
 }
 
+.unfinished{
+  background-color: #ffc107;
+}
