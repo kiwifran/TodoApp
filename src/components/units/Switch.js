@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Switch from "react-switch";
-
 class ListSwitch extends Component {
 	constructor(props) {
 		super(props);

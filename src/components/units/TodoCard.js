@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { deleteTodo } from "./actions/actionCreators";
-import { Container, Card, Button, Modal } from "react-bootstrap";
 import EditForm from "./EditForm";
+import { connect } from "react-redux";
+import { deleteTodo } from "../actions/actionCreators";
+import { Container, Card, Button, Modal } from "react-bootstrap";
 class TodoCard extends Component {
 	constructor(props) {
 		super(props);
@@ -17,18 +17,15 @@ class TodoCard extends Component {
 		const {
 			content,
 			content: { dueDate, todoName, isTodoDone, todoDescription },
-
 			todoId
 		} = this.props;
 		const date = new Date(dueDate);
 		const dateString = date.toDateString();
 		return (
 			<div
-				className={
-					isTodoDone
-						? "order-5 col-9 col-md-6 col-lg-4 col-xl-3 mb-3"
-						: "order-0 col-9 col-md-6 col-lg-4 col-xl-3 mb-3"
-				}
+				className={`${
+					isTodoDone ? "order-2" : "order-0"
+				} col-9 col-md-6 col-lg-4 col-xl-3 mb-3`}
 			>
 				<Card border={isTodoDone ? "success" : "warning"}>
 					<Card.Header
@@ -36,7 +33,7 @@ class TodoCard extends Component {
 					>
 						{isTodoDone
 							? `Done: ${dateString}`
-							: `Due: ${dateString}`}
+							: `Pending: ${dateString}`}
 					</Card.Header>
 					<Card.Body>
 						<Card.Title>{todoName}</Card.Title>

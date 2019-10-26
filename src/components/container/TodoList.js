@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchTodos } from "./actions/actionCreators";
-import TodoCard from "./TodoCard";
-import ListSwitch from "./Switch";
+import { fetchTodos } from "../actions/actionCreators";
+import TodoCard from "../units/TodoCard";
+import ListSwitch from "../units/Switch";
 class TodoList extends Component {
 	constructor(props) {
 		super(props);
@@ -15,7 +15,6 @@ class TodoList extends Component {
 		for (let key in todosData) {
 			list.push([key, todosData[key]]);
 		}
-		console.log(list);
 		if (this.state.isChecked) {
 			return list
 				.filter(item => item[1].isTodoDone === false)
@@ -40,7 +39,6 @@ class TodoList extends Component {
 	componentDidMount() {
 		this.props.fetchTodos();
 	}
-	componentDidUpdate(prevProps, prevState) {}
 	render() {
 		return (
 			<div>
@@ -56,7 +54,6 @@ class TodoList extends Component {
 		);
 	}
 }
-
 const mapStateToProps = store => {
 	return {
 		store

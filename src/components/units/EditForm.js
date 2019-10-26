@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updateTodo } from "./actions/actionCreators";
-import { addTodo } from "./actions/actionCreators";
+import { updateTodo, addTodo } from "../actions/actionCreators";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Form, Button } from "react-bootstrap";
@@ -37,7 +36,6 @@ class EditForm extends Component {
 				...this.state,
 				dueDate: this.state.dueDate.getTime()
 			});
-			console.log(this.state);
 			this.setState({
 				todoName: "",
 				isTodoDone: false,

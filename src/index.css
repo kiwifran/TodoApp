@@ -1,8 +1,6 @@
 .container.formContainer {
   width:60%;
 }
-
-
 .date {
   margin-bottom: 0.5rem;
 }
@@ -10,7 +8,6 @@
   text-decoration:line-through;
   background-color: #28a745;
 }
-
 .unfinished{
   background-color: #ffc107;
 }

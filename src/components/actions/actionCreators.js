@@ -1,15 +1,5 @@
-import dbRef from "../firebase";
-export const ADD_TODO = "ADD_TODO";
-export const DELETE_TODO = "DELETE_TODO";
-export const UPDATE_TODO = "UPDATE_TODO";
+import dbRef from "../configs/firebase";
 export const FETCH_TODOS = "FETCH_TODOS";
-
-// export const addTodo = newTodo => {
-// 	return {
-// 		type: ADD_TODO,
-// 		newTodo
-// 	};
-// };
 export const addTodo = newToDo => async dispatch => {
 	dbRef.push(newToDo);
 };
